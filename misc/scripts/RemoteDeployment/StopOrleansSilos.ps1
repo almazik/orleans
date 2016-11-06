@@ -17,9 +17,9 @@ if (($deploymentConfigFile -eq "/?") -or
 	($deploymentConfigFile -eq "help") )
 {
 	echo ""
-	echo "`tUsage:`t.\StopOrleansSilos.ps1 [deployementConfigFile]"
+	echo "`tUsage:`t.\StopOrleansSilos.ps1 [deploymentConfigFile]"
 	echo ""
-	echo "`t`tdeployementConfigFile::`t[Optional] The path to the deployment configuration file. "
+	echo "`t`tdeploymentConfigFile::`t[Optional] The path to the deployment configuration file. "
 	echo "`t`t`t`t`t(i.e. ""Deployment.xml"")  Use quotes if the path has a spaces."
 	echo "`t`t`t`t`tDefault is Deployment.xml. "
 	echo ""
@@ -29,7 +29,7 @@ if (($deploymentConfigFile -eq "/?") -or
 	return
 }
 
-# Change the path to where we think it sould be (see http://huddledmasses.org/powershell-power-user-tips-current-directory/).
+# Change the path to where we think it should be (see http://huddledmasses.org/powershell-power-user-tips-current-directory/).
 [Environment]::CurrentDirectory=(Get-Location -PSProvider FileSystem).ProviderPath
 
 $configXml = Get-DeploymentConfiguration ([ref]$deploymentConfigFile) $scriptDir
